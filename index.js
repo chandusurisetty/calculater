@@ -7,9 +7,13 @@ let symblecount = 0
 for (let btn of btns) {
     btn.addEventListener("click", async (el) => {
         if (btn.classList.contains("show")) {
+            if (screen.value === "Invalid input") {
+                screen.value = ""
+            }
             if ((screen.value === "" && nostart.some(symble => { return btn.innerText === symble }))) {
                 console.log(btn.innerText + "can not be passed at first")
             }
+
             else if (symbals.some(symbal => { return screen.value[screen.value.length - 1] === symbal }) && symbals.some(symbal => { return btn.innerText === symbal })) {
                 console.log(btn.innerText + "can not make two simples side to side")
             }
